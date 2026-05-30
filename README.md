@@ -24,12 +24,21 @@ English | [简体中文](README_CN.md)
 
 > **Key insight**: obscli treats your vault as a file system, not a running process — enabling automation, CI/CD integration, and headless operation.
 
+## 🚀 Installation
+
+```bash
+# From crates.io (recommended)
+cargo install obscli
+
+# From source
+git clone https://github.com/trtyr/obsidian-cli.git
+cd obsidian-cli
+cargo install --path .
+```
+
 ## ⚡ Quick Start
 
 ```bash
-# Install from source
-cargo install --path .
-
 # Set your vault (one-time setup)
 obscli vault set "~/Documents/MyVault"
 

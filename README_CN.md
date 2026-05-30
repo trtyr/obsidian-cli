@@ -24,12 +24,21 @@ English | [简体中文](README_CN.md)
 
 > **核心优势**: obscli 将你的仓库视为文件系统，而非运行中的进程 — 实现自动化、CI/CD 集成和无头操作。
 
+## 🚀 安装
+
+```bash
+# 从 crates.io 安装（推荐）
+cargo install obscli
+
+# 从源码安装
+git clone https://github.com/trtyr/obsidian-cli.git
+cd obsidian-cli
+cargo install --path .
+```
+
 ## ⚡ 快速开始
 
 ```bash
-# 从源码安装
-cargo install --path .
-
 # 设置仓库（一次性配置）
 obscli vault set "~/Documents/MyVault"
 
