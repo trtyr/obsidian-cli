@@ -1,19 +1,19 @@
-# obsidian-cli
+# obscli
 
-[![Crates.io](https://img.shields.io/crates/v/obsidian-cli?style=flat-square&logo=rust)](https://crates.io/crates/obsidian-cli)
+[![Crates.io](https://img.shields.io/crates/v/obscli?style=flat-square&logo=rust)](https://crates.io/crates/obscli)
 [![Rust](https://img.shields.io/badge/rust-2024+-ed8225?style=flat-square&logo=rust&logoColor=white)](https://rust-lang.org)
 [![License](https://img.shields.io/badge/license-MIT-22C55E?style=flat-square)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-macOS%20·%20Linux-8B5CF6?style=flat-square)]()
 
 English | [简体中文](README_CN.md)
 
-[🐙 GitHub](https://github.com/trtyr/obsidian-cli) · [📦 crates.io](https://crates.io/crates/obsidian-cli) · [⚡ 快速开始](#-快速开始) · [📚 命令](#-命令) · [🏗️ 架构](#️-架构)
+[🐙 GitHub](https://github.com/trtyr/obsidian-cli) · [📦 crates.io](https://crates.io/crates/obscli) · [⚡ 快速开始](#-快速开始) · [📚 命令](#-命令) · [🏗️ 架构](#️-架构)
 
 **极速 Obsidian 仓库 CLI 工具 — 无需桌面应用即可运行。** 直接操作仓库文件，提供 80+ 命令，覆盖笔记、链接、标签、属性、任务、日记、搜索、模板、书签和批量操作。基于 Rust 构建，采用微内核架构，高度可扩展。
 
-## 🆚 为什么选择 obsidian-cli
+## 🆚 为什么选择 obscli
 
-|  | Obsidian CLI (官方) | obsidian-cli |
+|  | Obsidian CLI (官方) | obscli |
 |---|---|---|
 | **桌面依赖** | ❌ 需要运行中的应用 | ✅ 独立运行 |
 | **命令结构** | ❌ 扁平命名空间 | ✅ 层次化 `资源 动作` |
@@ -22,7 +22,7 @@ English | [简体中文](README_CN.md)
 | **离线操作** | ❌ 需要 IPC | ✅ 直接文件访问 |
 | **可定制性** | ❌ 闭源 | ✅ 微内核，可扩展 |
 
-> **核心优势**: obsidian-cli 将你的仓库视为文件系统，而非运行中的进程 — 实现自动化、CI/CD 集成和无头操作。
+> **核心优势**: obscli 将你的仓库视为文件系统，而非运行中的进程 — 实现自动化、CI/CD 集成和无头操作。
 
 ## ⚡ 快速开始
 
@@ -31,13 +31,13 @@ English | [简体中文](README_CN.md)
 cargo install --path .
 
 # 设置仓库（一次性配置）
-obsidian-cli vault set "~/Documents/MyVault"
+obscli vault set "~/Documents/MyVault"
 
 # 现在可以在任何目录使用！
-obsidian-cli vault info
-obsidian-cli note list --recursive
-obsidian-cli search "关键词"
-obsidian-cli tag list --sort
+obscli vault info
+obscli note list --recursive
+obscli search "关键词"
+obscli tag list --sort
 ```
 
 ## 📚 命令
@@ -45,149 +45,149 @@ obsidian-cli tag list --sort
 ### 笔记操作
 
 ```bash
-obsidian-cli note create <名称>           # 创建新笔记
-obsidian-cli note read <笔记>             # 读取笔记内容
-obsidian-cli note edit <笔记>             # 在 $EDITOR 中打开
-obsidian-cli note delete <笔记>           # 删除笔记
-obsidian-cli note move <源> <目标>        # 移动/重命名笔记
-obsidian-cli note copy <源> <目标>        # 复制笔记
-obsidian-cli note list [路径]             # 列出文件
-obsidian-cli note append <笔记> <文本>    # 追加内容
-obsidian-cli note prepend <笔记> <文本>   # 预置内容
-obsidian-cli note stats [笔记]            # 显示统计
-obsidian-cli note aliases <笔记>          # 显示别名
-obsidian-cli note merge <s1,s2> <目标>    # 合并笔记
-obsidian-cli note split <笔记> --level 1  # 按标题拆分
+obscli note create <名称>           # 创建新笔记
+obscli note read <笔记>             # 读取笔记内容
+obscli note edit <笔记>             # 在 $EDITOR 中打开
+obscli note delete <笔记>           # 删除笔记
+obscli note move <源> <目标>        # 移动/重命名笔记
+obscli note copy <源> <目标>        # 复制笔记
+obscli note list [路径]             # 列出文件
+obscli note append <笔记> <文本>    # 追加内容
+obscli note prepend <笔记> <文本>   # 预置内容
+obscli note stats [笔记]            # 显示统计
+obscli note aliases <笔记>          # 显示别名
+obscli note merge <s1,s2> <目标>    # 合并笔记
+obscli note split <笔记> --level 1  # 按标题拆分
 ```
 
 ### 链接分析
 
 ```bash
-obsidian-cli link outgoing <笔记>         # 显示出链
-obsidian-cli link backlinks <笔记>        # 显示反向链接
-obsidian-cli link unresolved              # 显示未解析链接
-obsidian-cli link deadends                # 无入链的笔记
-obsidian-cli link orphans                 # 完全无链接的笔记
-obsidian-cli link rename <旧> <新>        # 重命名并更新所有引用
+obscli link outgoing <笔记>         # 显示出链
+obscli link backlinks <笔记>        # 显示反向链接
+obscli link unresolved              # 显示未解析链接
+obscli link deadends                # 无入链的笔记
+obscli link orphans                 # 完全无链接的笔记
+obscli link rename <旧> <新>        # 重命名并更新所有引用
 ```
 
 ### 标签操作
 
 ```bash
-obsidian-cli tag list                     # 列出所有标签
-obsidian-cli tag list --sort              # 按数量排序
-obsidian-cli tag notes <标签>             # 显示含此标签的笔记
-obsidian-cli tag add <笔记> <标签>        # 添加标签
-obsidian-cli tag remove <笔记> <标签>     # 移除标签
-obsidian-cli tag rename <旧> <新>         # 跨笔记重命名标签
+obscli tag list                     # 列出所有标签
+obscli tag list --sort              # 按数量排序
+obscli tag notes <标签>             # 显示含此标签的笔记
+obscli tag add <笔记> <标签>        # 添加标签
+obscli tag remove <笔记> <标签>     # 移除标签
+obscli tag rename <旧> <新>         # 跨笔记重命名标签
 ```
 
 ### Frontmatter 属性
 
 ```bash
-obsidian-cli prop get <笔记>              # 显示所有属性
-obsidian-cli prop get <笔记> <键>         # 显示特定属性
-obsidian-cli prop set <笔记> <键> <值>    # 设置属性
-obsidian-cli prop remove <笔记> <键>      # 移除属性
+obscli prop get <笔记>              # 显示所有属性
+obscli prop get <笔记> <键>         # 显示特定属性
+obscli prop set <笔记> <键> <值>    # 设置属性
+obscli prop remove <笔记> <键>      # 移除属性
 ```
 
 ### 任务管理
 
 ```bash
-obsidian-cli task list [笔记]             # 列出任务
-obsidian-cli task list --pending          # 显示未完成任务
-obsidian-cli task add <笔记> <文本>       # 添加新任务
-obsidian-cli task done <笔记> <行号>      # 标记完成
-obsidian-cli task undone <笔记> <行号>    # 重新打开
-obsidian-cli task remove <笔记> <行号>    # 移除任务
+obscli task list [笔记]             # 列出任务
+obscli task list --pending          # 显示未完成任务
+obscli task add <笔记> <文本>       # 添加新任务
+obscli task done <笔记> <行号>      # 标记完成
+obscli task undone <笔记> <行号>    # 重新打开
+obscli task remove <笔记> <行号>    # 移除任务
 ```
 
 ### 日记
 
 ```bash
-obsidian-cli daily today                  # 显示今天的日记
-obsidian-cli daily read [日期]            # 读取日记
-obsidian-cli daily create [日期]          # 创建日记（应用模板）
-obsidian-cli daily append <文本>          # 追加到今天
-obsidian-cli daily prepend <文本>         # 预置到今天
-obsidian-cli daily path [日期]            # 显示路径
-obsidian-cli daily list                   # 列出所有日记
+obscli daily today                  # 显示今天的日记
+obscli daily read [日期]            # 读取日记
+obscli daily create [日期]          # 创建日记（应用模板）
+obscli daily append <文本>          # 追加到今天
+obscli daily prepend <文本>         # 预置到今天
+obscli daily path [日期]            # 显示路径
+obscli daily list                   # 列出所有日记
 ```
 
 ### 搜索
 
 ```bash
-obsidian-cli search <查询>                # 全文搜索
-obsidian-cli search <查询> -r             # 正则搜索
-obsidian-cli search <查询> --tag <标签>   # 按标签过滤
-obsidian-cli search <查询> --path-only    # 仅搜索路径
+obscli search <查询>                # 全文搜索
+obscli search <查询> -r             # 正则搜索
+obscli search <查询> --tag <标签>   # 按标签过滤
+obscli search <查询> --path-only    # 仅搜索路径
 ```
 
 ### 模板
 
 ```bash
-obsidian-cli template list                # 列出模板
-obsidian-cli template read <名称>         # 读取模板
-obsidian-cli template create <笔记>       # 从笔记创建模板
-obsidian-cli template delete <名称>       # 删除模板
-obsidian-cli template apply <模板> <笔记> # 应用模板
+obscli template list                # 列出模板
+obscli template read <名称>         # 读取模板
+obscli template create <笔记>       # 从笔记创建模板
+obscli template delete <名称>       # 删除模板
+obscli template apply <模板> <笔记> # 应用模板
 ```
 
 ### 书签
 
 ```bash
-obsidian-cli bookmark list                # 列出书签
+obscli bookmark list                # 列出书签
 ```
 
 ### 批量操作
 
 ```bash
 # 批量重命名笔记
-obsidian-cli batch rename "旧模式" "新替换" --dry-run
-obsidian-cli batch rename "旧模式" "新替换" --force
+obscli batch rename "旧模式" "新替换" --dry-run
+obscli batch rename "旧模式" "新替换" --force
 
 # 批量移动笔记到目录
-obsidian-cli batch move "*.md" "archive/" --dry-run
-obsidian-cli batch move "*.md" "archive/" --force
+obscli batch move "*.md" "archive/" --dry-run
+obscli batch move "*.md" "archive/" --force
 
 # 批量删除笔记
-obsidian-cli batch delete "temp-*.md" --dry-run
-obsidian-cli batch delete "temp-*.md" --force
+obscli batch delete "temp-*.md" --dry-run
+obscli batch delete "temp-*.md" --force
 
 # 批量添加标签
-obsidian-cli batch tag "**/*.md" --tags "tag1,tag2" --dry-run
+obscli batch tag "**/*.md" --tags "tag1,tag2" --dry-run
 
 # 批量移除标签
-obsidian-cli batch untag "**/*.md" --tags "旧标签"
+obscli batch untag "**/*.md" --tags "旧标签"
 
 # 批量设置属性
-obsidian-cli batch prop "**/*.md" "status" "draft" --dry-run
+obscli batch prop "**/*.md" "status" "draft" --dry-run
 
 # 批量查找替换
-obsidian-cli batch replace "**/*.md" "旧文本" "新文本" --dry-run
+obscli batch replace "**/*.md" "旧文本" "新文本" --dry-run
 
 # 批量添加 frontmatter 属性
-obsidian-cli batch frontmatter "**/*.md" --properties "category=notes,status=draft"
+obscli batch frontmatter "**/*.md" --properties "category=notes,status=draft"
 ```
 
 ### 仓库操作
 
 ```bash
-obsidian-cli vault info                   # 仓库信息
-obsidian-cli vault stats                  # 仓库统计
-obsidian-cli vault set [路径]             # 设置默认仓库
-obsidian-cli vault unset                  # 移除默认仓库
-obsidian-cli vault list                   # 列出已配置仓库
-obsidian-cli vault repair --fix-unresolved --dry-run  # 修复断链
-obsidian-cli vault export --pretty        # 导出为 JSON
+obscli vault info                   # 仓库信息
+obscli vault stats                  # 仓库统计
+obscli vault set [路径]             # 设置默认仓库
+obscli vault unset                  # 移除默认仓库
+obscli vault list                   # 列出已配置仓库
+obscli vault repair --fix-unresolved --dry-run  # 修复断链
+obscli vault export --pretty        # 导出为 JSON
 ```
 
 ### 其他
 
 ```bash
-obsidian-cli outline <笔记>               # 显示标题大纲
-obsidian-cli wordcount [笔记]             # 字数统计
-obsidian-cli recent [数量]                # 最近的笔记
+obscli outline <笔记>               # 显示标题大纲
+obscli wordcount [笔记]             # 字数统计
+obscli recent [数量]                # 最近的笔记
 ```
 
 ## ⚙️ 配置
@@ -203,19 +203,19 @@ CLI 直接读取 Obsidian 的配置文件：
 设置默认仓库，即可在任何目录使用：
 
 ```bash
-obsidian-cli vault set "~/Documents/MyVault"
+obscli vault set "~/Documents/MyVault"
 # 现在可以在任何地方运行命令！
-obsidian-cli note list
+obscli note list
 ```
 
-配置文件存储在 `~/.config/obsidian-cli/config.json`。
+配置文件存储在 `~/.config/obscli/config.json`。
 
 ### 输出格式
 
 ```bash
-obsidian-cli -f json <命令>   # JSON 输出
-obsidian-cli -f csv <命令>    # CSV 输出
-obsidian-cli -f text <命令>   # 文本输出（默认）
+obscli -f json <命令>   # JSON 输出
+obscli -f csv <命令>    # CSV 输出
+obscli -f text <命令>   # 文本输出（默认）
 ```
 
 ## 🏗️ 架构
@@ -251,7 +251,7 @@ src/
 ## 🔧 构建
 
 - **Rust** ≥ 1.85 (edition 2024)
-- **无需 C 库** — obsidian-cli 是纯 Rust 项目
+- **无需 C 库** — obscli 是纯 Rust 项目
 
 ```bash
 # 调试构建

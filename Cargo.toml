@@ -7,7 +7,7 @@ license = "MIT"
 repository = "https://github.com/trtyr/obsidian-cli"
 
 [[bin]]
-name = "obsidian-cli"
+name = "obscli"
 path = "src/main.rs"
 [dependencies]
 # CLI
