@@ -1,9 +1,11 @@
 [package]
-name = "obsidian-cli"
+name = "obscli"
 version = "0.1.0"
 edition = "2024"
 description = "A blazing-fast CLI for Obsidian vaults — works without the desktop app"
 license = "MIT"
+repository = "https://github.com/trtyr/obsidian-cli"
+
 [[bin]]
 name = "obsidian-cli"
 path = "src/main.rs"
