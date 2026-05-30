@@ -1,6 +1,6 @@
 [package]
 name = "obscli"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "A blazing-fast CLI for Obsidian vaults — works without the desktop app"
 license = "MIT"
