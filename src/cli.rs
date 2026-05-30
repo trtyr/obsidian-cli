@@ -8,7 +8,7 @@ use clap::{Parser, Subcommand, ValueEnum};
 ///
 /// Works WITHOUT the Obsidian desktop app — operates directly on vault files.
 #[derive(Parser, Debug)]
-#[command(name = "obsidian-cli", version, about, long_about = None)]
+#[command(name = "obscli", version, about, long_about = None)]
 #[command(propagate_version = true)]
 pub struct Cli {
     /// Path to the Obsidian vault (auto-detected if inside one).
